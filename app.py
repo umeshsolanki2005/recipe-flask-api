@@ -19,6 +19,11 @@ joblib.dump(tfidf, 'tfidf.pkl')
 joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
 df.to_csv('recipes.csv', index=False)
 
+# ✅ Home route (for testing if API is live)
+@app.route('/')
+def home():
+    return "✅ Recipe API is live!"
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     data = request.json
