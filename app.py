@@ -1,12 +1,14 @@
 # flask-api/app.py
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ Add this line
 import pandas as pd
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
+CORS(app)  # ✅ Enable CORS for all routes
 
 # Load and preprocess data
 df = pd.read_json('recipes.json')
